@@ -1,6 +1,6 @@
 {
   "name": "solidity-ts-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pure Typescript Solidity Parser Library",
   "main": "ISolidityParser.ts",
   "scripts": {
