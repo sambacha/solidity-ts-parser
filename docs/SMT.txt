@@ -1,0 +1,111 @@
+(define-fun k () Int
+  1)
+(define-fun k!2103 ((x!0 Int)) Int
+  (ite (<= 0 x!0) (ite (<= 1 x!0) 1 0) (- 1)))
+(define-fun k!2104 ((x!0 (_ BitVec 2))) (_ BitVec 2)
+  (ite (= x!0 #b00) #b00
+  (ite (= x!0 #b10) #b10
+  (ite (= x!0 #b01) #b01
+    #b11))))
+(define-fun sc_s ((x!0 Int)) (_ BitVec 6)
+  (ite (= x!0 1) #b000010
+  (ite (= x!0 3) #b000010
+    #b000001)))
+(define-fun stack_s!2109 ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 6))) (_ BitVec
+   2)
+  (ite (and (= x!0 #b00) (= x!1 3) (= x!2 #b000001)) #b11
+  (ite (and (= x!0 #b00) (= x!1 4) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b01) (= x!1 0) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b01) (= x!1 2) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b01) (= x!1 1) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b01) (= x!1 3) (= x!2 #b000001)) #b11
+  (ite (and (= x!0 #b01) (= x!1 4) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b01) (= x!1 3) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b10) (= x!1 0) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b10) (= x!1 2) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b10) (= x!1 1) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b10) (= x!1 3) (= x!2 #b000001)) #b11
+  (ite (and (= x!0 #b10) (= x!1 4) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b10) (= x!1 3) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b11) (= x!1 0) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b11) (= x!1 2) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b11) (= x!1 1) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b11) (= x!1 3) (= x!2 #b000001)) #b11
+  (ite (and (= x!0 #b11) (= x!1 3) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b11) (= x!1 4) (= x!2 #b111111)) #b01
+  (ite (and (= x!0 #b11) (= x!1 3) (= x!2 #b111111)) #b01
+  (ite (and (= x!0 #b11) (= x!1 2) (= x!2 #b111111)) #b01
+  (ite (and (= x!0 #b11) (= x!1 1) (= x!2 #b111111)) #b01
+  (ite (and (= x!0 #b11) (= x!1 0) (= x!2 #b111111)) #b01
+    #b00)))))))))))))))))))))))))
+(define-fun k!2101 ((x!0 (_ BitVec 6))) (_ BitVec 6)
+  (let ((a!1 (ite (bvule #b000010 x!0)
+                  (ite (bvule #b100000 x!0)
+                       (ite (= x!0 #b111111) #b111111 #b100000)
+                       #b000010)
+                  #b000001)))
+    (ite (bvule #b000001 x!0) a!1 #b000000)))
+(define-fun stack_s ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 6))) (_ BitVec
+   2)
+  (stack_s!2109 (k!2104 x!0) x!1 (k!2101 x!2)))
+(define-fun exc_halt_t ((x!0 Int)) Bool
+  false)
+(define-fun instr!2106 ((x!0 Int)) Int
+  (ite (= x!0 1) 42
+    18))
+(define-fun instr ((x!0 Int)) Int
+  (instr!2106 (k!2103 x!0)))
+(define-fun storage_t ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 2))) (_ BitVec
+   2)
+  #b00)
+(define-fun stack_t!2107 ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 6))) (_ BitVec
+   2)
+  (ite (and (= x!0 #b00) (= x!1 1) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b01) (= x!1 0) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b01) (= x!1 1) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b10) (= x!1 0) (= x!2 #b000000)) #b10
+  (ite (and (= x!0 #b10) (= x!1 1) (= x!2 #b000000)) #b01
+  (ite (and (= x!0 #b11) (= x!1 0) (= x!2 #b111111)) #b01
+  (ite (and (= x!0 #b11) (= x!1 0) (= x!2 #b000000)) #b11
+  (ite (and (= x!0 #b11) (= x!1 1) (= x!2 #b111111)) #b01
+    #b00)))))))))
+(define-fun stack_t ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 6))) (_ BitVec
+   2)
+  (stack_t!2107 (k!2104 x!0) (k!2103 x!1) (k!2101 x!2)))
+(define-fun sc_t ((x!0 Int)) (_ BitVec 6)
+  #b000001)
+(define-fun exc_halt_s ((x!0 Int)) Bool
+  false)
+(define-fun a ((x!0 Int)) (_ BitVec 2)
+  #b10)
+(define-fun used_gas_t!2108 ((x!0 (_ BitVec 2)) (x!1 Int)) Int
+  (ite (and (= x!0 #b00) (= x!1 1)) 3
+  (ite (and (= x!0 #b01) (= x!1 1)) 3
+  (ite (and (= x!0 #b10) (= x!1 1)) 3
+  (ite (and (= x!0 #b11) (= x!1 1)) 3
+    0)))))
+(define-fun storage_s ((x!0 (_ BitVec 2)) (x!1 Int) (x!2 (_ BitVec 2))) (_ BitVec
+   2)
+  #b00)
+(define-fun used_gas_s!2105 ((x!0 (_ BitVec 2)) (x!1 Int)) Int
+  (ite (and (= x!0 #b00) (= x!1 1)) 3
+  (ite (and (= x!0 #b00) (= x!1 2)) 6
+  (ite (and (= x!0 #b00) (= x!1 3)) 9
+  (ite (and (= x!0 #b00) (= x!1 4)) 12
+  (ite (and (= x!0 #b01) (= x!1 1)) 3
+  (ite (and (= x!0 #b01) (= x!1 2)) 6
+  (ite (and (= x!0 #b01) (= x!1 3)) 9
+  (ite (and (= x!0 #b01) (= x!1 4)) 12
+  (ite (and (= x!0 #b10) (= x!1 1)) 3
+  (ite (and (= x!0 #b10) (= x!1 2)) 6
+  (ite (and (= x!0 #b10) (= x!1 3)) 9
+  (ite (and (= x!0 #b10) (= x!1 4)) 12
+  (ite (and (= x!0 #b11) (= x!1 1)) 3
+  (ite (and (= x!0 #b11) (= x!1 2)) 6
+  (ite (and (= x!0 #b11) (= x!1 3)) 9
+  (ite (and (= x!0 #b11) (= x!1 4)) 12
+    0)))))))))))))))))
+(define-fun used_gas_s ((x!0 (_ BitVec 2)) (x!1 Int)) Int
+  (used_gas_s!2105 (k!2104 x!0) x!1))
+(define-fun used_gas_t ((x!0 (_ BitVec 2)) (x!1 Int)) Int
+  (used_gas_t!2108 (k!2104 x!0) (k!2103 x!1)))
