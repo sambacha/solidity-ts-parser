@@ -1,0 +1,9 @@
+# travis-ci
+os: linux
+dist: xenial
+
+language: nodejs
+- '10'
+- '12'
+
+scripts: npm install 
