@@ -1,5 +1,7 @@
 = Solidity Typescript Parser Library 
 
+link:https://www.npmjs.com/package/solidity-ts-parser[npm install solidity-ts-parser]
+
 == Overview 
 
 Typescript + some scripts for analysis this is more of a bespoke tooling library than a general purpose nodejs library
