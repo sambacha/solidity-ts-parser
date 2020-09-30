@@ -1,11 +1,13 @@
-// Proof of Concept
+// Parser Interface Example
 // SPDX-License-Idnentifier: ISC
-import { InputStream } from "./InputStream";
-import { CommonTokenStream } from "./CommonTokenStream";
-import { SolidityParser } from "./SolidityParser";
-import { SolidityLexer } from "./SolidityLexer";
+import { InputStream } from "./InputStream.ts";
+import { CommonTokenStream } from "./CommonTokenStream.ts";
+import { SolidityParser } from "./SolidityParser.ts";
+import { SolidityLexer } from "./SolidityLexer.ts";
+
 
 const inputStream = new InputStream("./test/test.sol");
+
 const lexer = new SolidityLexer(inputStream);
 const tokenStream = new CommonTokenStream(lexer);
 const parser = new SolidityParser(tokenStream);

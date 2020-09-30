@@ -62,6 +62,5 @@
   },
   "include": ["src/**/*", "config/testing/setupTests.ts"],
   "exclude": ["dist", "node_modules", "public", ".cache"],
-"typeRoots": ["types"]
-
+  "typeRoots": ["types"]
 }
