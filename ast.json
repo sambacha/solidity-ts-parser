@@ -1,0 +1,84 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "bytes4",
+						"name": "functionSelector",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "oldProxyTarget",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newProxyTarget",
+						"type": "address"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct IDiamondCut.FacetCut[]",
+				"name": "_facetCuts",
+				"type": "tuple[]"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_initializationContract",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes",
+				"name": "_initializationCalldata",
+				"type": "bytes"
+			}
+		],
+		"name": "DiamondCut",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "bytes4",
+						"name": "functionSelector",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "oldProxyTarget",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newProxyTarget",
+						"type": "address"
+					}
+				],
+				"internalType": "struct IDiamondCut.FacetCut[]",
+				"name": "_facetCuts",
+				"type": "tuple[]"
+			},
+			{
+				"internalType": "address",
+				"name": "_initializationContract",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_initializationCalldata",
+				"type": "bytes"
+			}
+		],
+		"name": "diamondCut",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
